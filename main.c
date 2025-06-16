@@ -333,17 +333,18 @@ void executarDesafios(Turma turmas[]){
     printf("Com o fim dos desafios, temos a nossa campea!!!\n\n");
     printf("Muito barulho e palmas para a turma %s que venceu os desafios com o total de %d pontos!!!\n\n Clap* Clap*(Todo mundo aplaudindo...)\n\n",
         turmas[equipeVencedora].nome, turmas[equipeVencedora].pontos);
+    turmas[equipeVencedora].vitoriasDesafios++;
 }
 
 void dadosDasTurmas(Turma turmas[]){
     printf("\n\n**** DADOS DAS TURMAS ****\n\n");
     for(int i = 0; i < QTD_TURMAS; i++){
-        printf("Turma %s\n", turmas[i].nome);
+        printf("\nTurma %s\n", turmas[i].nome);
         printf("Alunos: ");
         for(int j = 0; j < QTD_ALUNOS_TURMA; j++){
             printf("Nome: %s\n", turmas[i].alunos[j].nome);
         }
-        printf("\nVitorias no desafio: %d", turmas[i].vitoriasDesafios);
+        printf("Vitorias no desafio: %d\n", turmas[i].vitoriasDesafios);
     }
 }
 
@@ -420,7 +421,7 @@ int main(){
     Turma turmas[QTD_TURMAS];
     int opcao = 0;
 
-    zerarVitoriasDesafio(turmas);
+    zerarVitoriaDesafios(turmas);
 
     do {
         opcao = mostrarMenu();
